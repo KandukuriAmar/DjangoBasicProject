@@ -1,0 +1,32 @@
+{% extends 'Navbar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback Form</title>
+</head>
+{% block body %}
+
+<h2>Feedback Form</h2>
+<p>Please provide your feedback:</p>
+
+<form action="{% url 'feedbackcalls' %}" method="post">
+  {% csrf_token %}
+  <label for="fname">First Name:</label><br>
+  <input type="text" id="fname" name="fname" required><br>
+
+  <label for="lname">Last Name:</label><br>
+  <input type="text" id="lname" name="lname" required><br>
+
+  <label for="email">Email:</label><br>
+  <input type="email" id="email" name="email" required><br>
+
+  <label for="comment">Comment:</label><br>
+  <textarea id="comment" name="comment" rows="4" cols="50" required></textarea><br><br>
+
+  <input type="submit" value="Submit">
+</form>
+
+{% endblock %}
+</html>

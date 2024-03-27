@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% extends 'Navbar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Printing</title>
+</head>
+<body>
+{% block body %}
+
+<div class="container">
+  <div class="row">
+    <div class="col order-last">
+      First in DOM, ordered last
+        <div>
+            <form method="post" action="{% url 'otpgenerator' %}">
+                {% csrf_token %}
+                <label>Enter Name: </label>
+                 <input type="text" name="user_input" required>
+                 <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="col">
+      Second in DOM, unordered
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <span style="font-size: 60px;" >{{ran1}}</span>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
+
+</body>
+</html>
